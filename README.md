@@ -62,7 +62,7 @@ java -cp target/classes app.Gomoku
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ### Folder Overview:
 
@@ -145,7 +145,7 @@ Below is the UML class diagram summarizing the main components and their relatio
 
 ---
 
-## 📁 Other Important Files
+## Other Important Files
 
 | File                                   | Purpose                                                                    |
 | -------------------------------------- | -------------------------------------------------------------------------- |
@@ -157,7 +157,7 @@ Below is the UML class diagram summarizing the main components and their relatio
 
 ---
 
-### 📜 About Scripts
+### About Scripts
 
 ### runGomoku.bat / runGomoku.sh
 
@@ -188,7 +188,7 @@ Below is the UML class diagram summarizing the main components and their relatio
 
 ---
 
-## 🚧 Will Be Added
+## Will Be Added
 
 These features and improvements are under consideration or planned for future versions:
 
