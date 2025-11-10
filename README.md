@@ -137,7 +137,7 @@ Gomoku-Game-Projet/
 | `ColorInConsole`             | Provides ANSI color codes for styled terminal output.               |
 | `ConvertToJavaStringLiteral` | Formats text for easier console printing with tabs and line breaks. |
 
-### 📊 UML Diagram
+### UML Diagram
 
 Below is the UML class diagram summarizing the main components and their relations:
 
@@ -219,7 +219,3 @@ These features and improvements are under consideration or planned for future ve
 
 - **Erkin Tunç Boya**  
   _(Gomoku Project 2025 April-Mai)_
-
----
-
-# 🎮 Enjoy Playing Gomoku and Good Luck! 🎮
