@@ -24,12 +24,41 @@ public final class GameState {
     private final Move lastMove;
     private final int winLength;
 
-    public GameState(byte[][] board,
+    public GameState(
+            byte[][] board,
             PlayerType currentPlayer,
             Move lastMove,
             int winLength) {
 
-        this.board = board; // no copy
+        if (board == null || board.length == 0 || board[0] == null || board[0].length == 0) {
+            throw new IllegalArgumentException("Board must be a non-empty rectangular matrix.");
+        }
+        for (int row = 1; row < board.length; row++) {
+            if (board[row] == null || board[row].length != board[0].length) {
+                throw new IllegalArgumentException("Board must be rectangular.");
+            }
+        }
+        if (currentPlayer == null) {
+            throw new IllegalArgumentException("currentPlayer cannot be null.");
+        }
+        if (winLength <= 0) {
+            throw new IllegalArgumentException("winLength must be positive.");
+        }
+
+        this.board = deepCopyBoard(board); // SAFE COPY
+        this.currentPlayer = currentPlayer;
+        this.lastMove = lastMove;
+        this.winLength = winLength;
+    }
+
+    private GameState(
+            byte[][] alreadyOwnedBoard,
+            PlayerType currentPlayer,
+            Move lastMove,
+            int winLength,
+            boolean trusted) {
+
+        this.board = alreadyOwnedBoard; // NO COPY
         this.currentPlayer = currentPlayer;
         this.lastMove = lastMove;
         this.winLength = winLength;
@@ -75,7 +104,8 @@ public final class GameState {
                 newBoard,
                 currentPlayer.opponent(),
                 move,
-                winLength);
+                winLength,
+                true); // use trusted constructor
     }
 
     public List<Move> getLegalMoves() {
@@ -237,7 +267,7 @@ public final class GameState {
     // Copy helpers
     // ----------------------------
 
-    private byte[][] deepCopyBoard(byte[][] originalBoard) {
+    private static byte[][] deepCopyBoard(byte[][] originalBoard) {
         byte[][] copy = new byte[originalBoard.length][originalBoard[0].length];
         for (int row = 0; row < originalBoard.length; row++) {
             System.arraycopy(originalBoard[row], 0, copy[row], 0, originalBoard[row].length);
