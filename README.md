@@ -4,6 +4,8 @@
 
 Terminal Gomoku with a clean domain model and an isolated adversarial search layer.
 
+Gomoku is a two-player, zero-sum board game where players alternate placing stones on a grid, aiming to align five consecutive pieces horizontally, vertically, or diagonally.
+
 Core architectural principles:
 
 - Clear domain modeling (`model/`)
