@@ -1,17 +1,18 @@
+:: runGomoku.bat
 @echo off
+setlocal
+
 echo Compiling...
 
-javac -d target\classes ^
-src\main\java\model\*.java ^
-src\main\java\util\*.java ^
-src\main\java\ai\*.java ^
-src\main\java\save\*.java ^
-src\main\java\app\*.java 
+if not exist target\classes mkdir target\classes
 
+dir /s /b src\main\java\*.java > target\sources.txt
+
+javac -d target\classes @target\sources.txt
 if %errorlevel% neq 0 (
     echo Compilation failed.
     pause
-    exit /b
+    exit /b %errorlevel%
 )
 
 echo.

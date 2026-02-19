@@ -1,24 +1,18 @@
+# runGomoku.sh
 #!/bin/bash
+set -euo pipefail
 
 echo "Compiling..."
 
-javac -d target/classes \
-src/main/java/model/*.java \
-src/main/java/util/*.java \
-src/main/java/ai/*.java \
-src/main/java/save/*.java \
-src/main/java/app/*.java
+mkdir -p target/classes
+find src/main/java -name "*.java" > target/sources.txt
 
-if [ $? -ne 0 ]; then
-  echo "Compilation failed."
-  read -p "Press enter to exit..."
-  exit 1
-fi
+javac -d target/classes @target/sources.txt
 
 echo
 echo "Running Gomoku..."
 echo
 
-java -cp target/classes main.java.app.Gomoku
+java -cp target/classes app.Gomoku
 
 read -p "Press enter to exit..."

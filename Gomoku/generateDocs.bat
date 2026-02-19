@@ -1,17 +1,20 @@
+:: generateDocs.bat
 @echo off
+setlocal
+
 echo Generating Javadoc with private methods...
 
-javadoc -d doc -private ^
-  src\main\java\model\*.java ^
-  src\main\java\util\*.java ^
-  src\main\java\ai\*.java ^
-  src\main\java\save\*.java ^
-  src\main\java\app\*.java
+if not exist target mkdir target
+dir /s /b src\main\java\*.java > target\sources.txt
 
+if exist doc rmdir /s /q doc
+mkdir doc
+
+javadoc -d doc -private @target\sources.txt
 if %errorlevel% neq 0 (
     echo Failed to generate Javadoc.
     pause
-    exit /b
+    exit /b %errorlevel%
 )
 
 echo Javadoc generated in the 'doc' folder.

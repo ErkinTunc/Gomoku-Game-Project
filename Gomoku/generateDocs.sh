@@ -1,24 +1,22 @@
 #!/bin/bash
+set -euo pipefail
 
 echo "Generating Javadoc with private methods..."
 
-javadoc -d doc -private \
-  src/main/java/model/*.java \
-  src/main/java/util/*.java \
-  src/main/java/ai/*.java \
-  src/main/java/save/*.java \
-  src/main/java/app/*.java
+mkdir -p target
+find src/main/java -name "*.java" > target/sources.txt
 
-if [ $? -ne 0 ]; then
-  echo "Failed to generate Javadoc."
-  read -p "Press enter to exit..."
-  exit 1
-fi
+rm -rf doc
+mkdir -p doc
+
+javadoc -d doc -private @target/sources.txt
 
 echo "Javadoc generated in the 'doc' folder."
 
 if command -v xdg-open &> /dev/null; then
   xdg-open doc/index.html
+elif command -v open &> /dev/null; then
+  open doc/index.html
 else
   echo "Open doc/index.html manually in your browser."
 fi
