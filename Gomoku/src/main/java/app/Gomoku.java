@@ -131,6 +131,7 @@ public class Gomoku {
                     settingsMenu(game);
                     break;
                 case 5:
+                    ColorInConsole.clearScreen(); // Clear the console
                     System.out.println(ColorInConsole.BrightBlack + "Exiting the game..." + ColorInConsole.Reset);
                     System.exit(0); // Exit the program
                     break;
