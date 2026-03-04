@@ -122,6 +122,16 @@ java -cp target/classes app.Gomoku
 
 ---
 
+## Development History
+
+This project was originally developed on GitLab during a university course.
+
+The full commit history and initial development can be found here:
+[🔗 Gomoku-Gitlab](https://gitlab.isima.fr/etboya/gomoku-game-n2-poo)
+
+This GitHub repository provides a cleaned version of the code with
+additional documentation and architectural notes.
+
 ## Author
 
 Erkin Tunc Boya
