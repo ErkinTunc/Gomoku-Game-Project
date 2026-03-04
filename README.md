@@ -132,6 +132,8 @@ The full commit history and initial development can be found here:
 This GitHub repository provides a cleaned version of the code with
 additional documentation and architectural notes.
 
+---
+
 ## Author
 
 Erkin Tunc Boya
