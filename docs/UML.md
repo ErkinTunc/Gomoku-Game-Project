@@ -33,17 +33,6 @@ For a zoom-friendly version:
 - Core game-domain responsibilities
 - Associations and dependencies inside the model layer
 
-
-
-## What This Diagram Does NOT Show
-
-- `app/` orchestration layer
-- `search/` engine layer
-- Persistence (`save/`)
-- Utility helpers (`util/`)
-
-Those layers are intentionally excluded to keep the model diagram focused and readable.
-
 ---
 
 ## Design Intent of the Model Layer
