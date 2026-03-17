@@ -26,15 +26,6 @@ For a zoom-friendly version:
 
 ---
 
-## What This Diagram Shows
-
-- Relationships between `Grid`, `Piece`, `Direction`
-- Player hierarchy (`Player`, `Human`, etc.)
-- Core game-domain responsibilities
-- Associations and dependencies inside the model layer
-
----
-
 ## Design Intent of the Model Layer
 
 The `model/` package represents:
